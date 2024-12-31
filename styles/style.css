@@ -67,7 +67,10 @@ footer p {
 }
 
 #contact {
-    font-size: medium
+    font-size: large;
+    position: absolute;
+    text-align: right;
+    bottom: 35px;
 }
 
 
@@ -114,17 +117,19 @@ footer p {
 
 #pastWork {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     max-width: 80vw;
     overflow: auto;
     flex-wrap: wrap;
-    gap: 2vw;
+    gap: 90px;
 }
 
 #pastWork img {
     max-width: 80vw;
-    width: 320px;
-    height: 180px;
+}
+
+#pastWork div {
+    margin-top: 10px;
 }
 
 .title {

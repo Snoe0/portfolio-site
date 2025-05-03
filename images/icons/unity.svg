@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(25, 25) scale(0.8)">
+        <!-- Unity Logo -->
+        <path d="M 128,0 L 0,74 v 108 l 128,74 128,-74 V 74 Z" fill="#222c37"/>
+        <path d="M 128,24 L 24,85 v 86 l 104,60 104,-60 V 85 Z" fill="none" stroke="white" stroke-width="8"/>
+        <!-- Three characteristic Unity arrows -->
+        <path d="M 72,85 L 128,115 184,85" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 72,171 L 128,141 184,171" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 128,24 L 128,256" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
+    </g>
+</svg> 

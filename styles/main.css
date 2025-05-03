@@ -218,6 +218,11 @@ h2 {
     font-weight: 500;
 }
 
+.experience h2 {
+    text-align: center;
+}
+
+
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -229,7 +234,11 @@ h2 {
 
 .about-content {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto; 
+}
+
+.contact {
+    text-align: center;
 }
 
 .contact-links {

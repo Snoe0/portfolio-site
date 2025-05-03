@@ -32,7 +32,7 @@ let lastScrollY = window.scrollY;
 let scrollSpeed = 0;
 let scrollDirection = 1; // 1 for down, -1 for up
 let baseRotationSpeed = 0.0001;
-let maxRotationSpeed = 0.001;
+let maxRotationSpeed = 0.0015;
 let currentRotationSpeed = baseRotationSpeed;
 
 // Animation

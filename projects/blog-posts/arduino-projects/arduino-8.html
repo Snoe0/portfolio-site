@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arduino HW 3 | Blog</title>
+    <title>Arduino HW 8 | Blog</title>
     <link rel="stylesheet" href="/styles/main.css?v=1.0.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,16 +32,29 @@
 
     <main>
         <section class="hero">
-            <h1>Arduino HW 3 - Love-O-Meter</h1>
+            <h1>Arduino HW 6 - Light Theremin</h1>
             <p class="subtitle">IGME 470</p>
         </section>
 
         <section id="explanation">
             <p>
-                This project was my most frustrating one yet and required some debugging, but ultimately taught me how to adapt and problem solve. The goal of the project was to create a "Love-O-Meter" that lights up a series of LEDs based on the input from a temperature sensor.<br><br>My sensor was reporting that the temperature was -25 degrees Celsius, which was causing the LEDs to not light up as expected. After some debugging and testing, I noticed that without the sensor, the lights would light up, so the lights were not the issue. I attempted different configurations for the sensor but none worked. In the end, I used a somewhat band-aid solution by adjusting the threshold in the code to account for the low reading.<br><br>I <b>swear</b> my room isn't that cold!
+                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
             </p>
             <br><br>
-            <img src="media/arduino-3/loveometer.jpg" alt="Love-O-Meter Lit Up">
+            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
+            <br><br>
+            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
+            <br><br>
+            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <ul>
+                <li>1x Phototransistor</li>
+                <li>1x Piezo Speaker</li>
+                <li>1x 10kΩ Resistor</li>
+            </ul>
+            <br>
+            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <br><br>
+            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
         </section>
     </main>
 

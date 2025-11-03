@@ -32,29 +32,32 @@
 
     <main>
         <section class="hero">
-            <h1>Arduino HW 6 - Light Theremin</h1>
+            <h1>Arduino HW 7 - Keyboard Instrument</h1>
             <p class="subtitle">IGME 470</p>
         </section>
 
         <section id="explanation">
             <p>
-                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
+                The Keyboard Instrument assignment builds upon the concepts from the Light Theremin, taking sound generation with Arduino to the next level. Instead of using a sensor to control pitch, this project creates a musical keyboard using pushbuttons. Each button plays a different pitch through the piezo speaker.
             </p>
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
-            <br><br>
-            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <br>
+            <p><b>The parts used:</b></p>
             <ul>
-                <li>1x Phototransistor</li>
                 <li>1x Piezo Speaker</li>
-                <li>1x 10kΩ Resistor</li>
+                <li>4x Buttons</li>
+                <li>Resistors for pitch distinction</li>
             </ul>
             <br>
-            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <img height="auto" width="40%" src="media/arduino-7/07arduino.png" alt="Keyboard Instrument Arduino Setup">
             <br><br>
-            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
+            <p>
+                The code reads the state of each button and uses the <code>tone()</code> function to play proper sounds on the piezo speaker. <br><br>I talk a lot about how the Arduino is similar to things from Minecraft in my blog posts, but this project really reminded me of the note blocks from Minecraft, where each block plays a different pitch / chord when activated. This project was a fun way to create a simple musical instrument and further explore sound generation with Arduino.
+            </p>
+            <br>
+            <img height="auto" width="40%" src="media/arduino-7/07code.png" alt="Keyboard Instrument Code">
+            <br><br>
+            <h2>Demo Video</h2>
+            <iframe height="600px" width="50%" src="https://youtube.com/embed/t4T0AsCCNe8"></iframe>
         </section>
     </main>
 

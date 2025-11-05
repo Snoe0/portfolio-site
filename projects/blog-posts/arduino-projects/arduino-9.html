@@ -32,29 +32,30 @@
 
     <main>
         <section class="hero">
-            <h1>Arduino HW 6 - Light Theremin</h1>
+            <h1>Arduino HW 9 - Motorized Pinwheel</h1>
             <p class="subtitle">IGME 470</p>
         </section>
 
         <section id="explanation">
             <p>
-                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
+                The Motorized Pinwheel assignment is our first time working with motors and external power sources in the Arduino course. This project introduces the concept of using a 9V battery to power a DC motor, which spins a pinwheel when a button is pressed. <br><br>This assignment is important because it teaches us how to work with higher-power components that can't be powered directly by the Arduino's 5V output. By using a transistor to control the motor and an external battery for power, we learn the fundamentals of motor control and power management.
             </p>
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
-            <br><br>
-            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <br>
+            <p><b>The parts used:</b></p>
             <ul>
-                <li>1x Phototransistor</li>
-                <li>1x Piezo Speaker</li>
-                <li>1x 10kΩ Resistor</li>
+                <li>1x DC Motor</li>
+                <li>1x Pushbutton</li>
+                <li>1x 9V Battery</li>
+                <li>1x Transistor (to control the motor)</li>
+                <li>1x Diode (to protect against back EMF)</li>
+                <li>Resistors</li>
             </ul>
             <br>
-            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <img height="auto" width="40%" src="media/arduino-9/09arduino.png" alt="Motorized Pinwheel Arduino Setup">
             <br><br>
-            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
+            <p>
+                The circuit works by using the Arduino to read the button state. When the button is pressed, the Arduino sends a signal to the transistor, which acts as a switch to allow current from the 9V battery to flow through the motor. The diode protects the circuit from the back EMF (electromagnetic force) that motors generate when they stop spinning. <br><br>When the button is released, the motor stops spinning. This simple on/off control demonstrates the basic principles of motor control that are used in more complex projects like robots and automated systems.
+            </p>
         </section>
     </main>
 

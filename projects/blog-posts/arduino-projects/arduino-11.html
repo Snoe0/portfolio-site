@@ -20,11 +20,11 @@
         <nav>
             <div class="logo">Yuri Korolev</div>
             <div class="menu">
-                <a href="#projects">Projects</a>
+                <a href="/#projects">Projects</a>
                 <a href="/about.html">About</a>
-                <a href="#contact">Contact</a>
+                <a href="/#contact">Contact</a>
                 <a href="/projects/blog-posts/blog-posts.html">Blog</a>
-                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="/resume.pdf" target="_blank">Resume</a>
             </div>
         </nav>
     </header>
@@ -38,23 +38,30 @@
 
         <section id="explanation">
             <p>
-                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
+                The Crystal Ball assignment is similar to a Magic 8 Ball - it gives a response when shaken. This project was particularly exciting because it was our first time working with an LCD display in the Arduino course. <br><br>The crystal ball uses a tilt sensor to detect when it's been shaken, then displays a random response on the LCD screen. The potentiometer is used to adjust the contrast of the LCD display for better viewing.
             </p>
+            <br>
+            <img height="auto" width="40%" src="media/arduino-11/11arduino.png" alt="Crystal Ball Arduino Circuit Diagram">
+            <br>
+            <img height="auto" width="40%" src="media/arduino-11/11screenimage.jpg" alt="LCD Display Output">
             <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
-            <br><br>
-            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <p><b>The parts used:</b></p>
             <ul>
-                <li>1x Phototransistor</li>
-                <li>1x Piezo Speaker</li>
-                <li>1x 10kΩ Resistor</li>
+                <li>1x Arduino Uno R3</li>
+                <li>1x Tilt Sensor</li>
+                <li>1x 10 kΩ Resistor</li>
+                <li>1x 250 kΩ Potentiometer</li>
+                <li>1x LCD 16 x 2</li>
+                <li>1x 220 Ω Resistor</li>
             </ul>
             <br>
-            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <p>
+                The circuit works by monitoring the tilt sensor for changes in orientation. When the sensor detects a tilt, the Arduino generates a random message and displays it on the LCD. This project demonstrates important concepts like working with LCD displays, using sensors for input detection, and implementing random number generation to create an interactive fortune-telling device. It was extremely interesting to see how the LCD screen was controlled from setting up each line to actually sending the messages, having to clear the screen each time before displaying a new message and manually go from line to line.
+            </p>
+            <img height="auto" width="40%" src="media/arduino-11/11code.png" alt="Crystal Ball Arduino Code">
             <br><br>
-            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
+            <h2>Demo Video</h2>
+            <iframe height="600px" width="50%" src="https://youtube.com/embed/kZsmO3XfXdI"></iframe>
         </section>
     </main>
 

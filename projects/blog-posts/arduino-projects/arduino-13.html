@@ -38,23 +38,28 @@
 
         <section id="explanation">
             <p>
-                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
+                The Touchy Feely Lamp is a very simple but very fascinating circuit that uses the human body as a capacitor to complete the circuit and activate the lamp. This project uses the principle of capacitive sensing, where the human body acts as part of the electrical circuit. <br><br>When you touch the sensor, your body's natural capacitance changes the circuit's electrical properties, allowing the Arduino to detect the touch and turn on the LED. This is apparently similar to what is used in touch-screens, which is very interesting.
             </p>
+            <br>
+            <img height="auto" width="40%" src="media/arduino-13/13arduino.png" alt="Touchy Feely Lamp Arduino Setup">
+            <br>
+            <img height="auto" width="40%" src="media/arduino-13/13schematic.png" alt="Circuit Schematic">
             <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
-            <br><br>
-            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <p><b>The parts used:</b></p>
             <ul>
-                <li>1x Phototransistor</li>
-                <li>1x Piezo Speaker</li>
-                <li>1x 10kΩ Resistor</li>
+                <li>1x LED</li>
+                <li>1x 220 Ω Resistor</li>
+                <li>1x 1 MΩ Resistor</li>
             </ul>
             <br>
-            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <img height="auto" width="40%" src="media/arduino-13/13code.png" alt="Arduino Code">
+            <br>
+            <p>
+                The circuit is extremely simple, requiring only an LED and two resistors. The Arduino uses the CapacitiveSensor library to measure the capacitance between two pins. When you touch the wire (or usually a piece of aluminum foil), your body adds capacitance to the circuit, which the Arduino detects and responds by lighting up the LED. <br><br>This project is an excellent introduction to capacitive sensing and shows how simple components can create interactive, touch-responsive projects.
+            </p>
             <br><br>
-            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
+            <h2>Demo</h2>
+            <img height="auto" width="40%" src="media/arduino-13/IMG_6715.gif" alt="Touchy Feely Lamp Demo">
         </section>
     </main>
 

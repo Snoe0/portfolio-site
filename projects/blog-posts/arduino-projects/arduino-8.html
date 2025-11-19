@@ -32,29 +32,38 @@
 
     <main>
         <section class="hero">
-            <h1>Arduino HW 6 - Light Theremin</h1>
+            <h1>Arduino HW 8 - Digital Hourglass</h1>
             <p class="subtitle">IGME 470</p>
         </section>
 
         <section id="explanation">
             <p>
-                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
+                The Digital Hourglass assignment uses multiple LEDs which light up in succession over time, simulating an hourglass. This project introduces the concept of using a tilt sensor to detect orientation changes. Similar to flipping an hourglass to reset the time, the tilt sensor is used to restart the timer. <br><br>As time passes, the LEDs light up one by one until all are illuminated. When you tilt the device, the tilt sensor detects the change and resets the timer, turning off all LEDs to start the countdown again.
             </p>
+            <br>
+            <img height="auto" width="40%" src="media/arduino-8/08arduino.png" alt="Digital Hourglass Arduino Setup">
+            <br>
+            <img height="auto" width="40%" src="media/arduino-8/08schematic.png" alt="Digital Hourglass Schematic">
+            <br>
+            <img height="auto" width="40%" src="media/arduino-8/08setup.jpg" alt="Physical Setup">
             <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
-            <br><br>
-            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <p><b>The parts used:</b></p>
             <ul>
-                <li>1x Phototransistor</li>
-                <li>1x Piezo Speaker</li>
-                <li>1x 10kΩ Resistor</li>
+                <li>1x Arduino Uno R3</li>
+                <li>1x Tilt Sensor</li>
+                <li>1x 10 kΩ Resistor</li>
+                <li>6x 220 Ω Resistors</li>
+                <li>6x Red LEDs</li>
             </ul>
             <br>
-            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <img height="auto" width="40%" src="media/arduino-8/08arduinocode.png" alt="Arduino Code">
+            <br>
+            <p>
+                The circuit uses a tilt sensor connected to a digital input pin to detect when the device is tilted. The Arduino code monitors the tilt sensor and manages a timer that lights up each LED sequentially. <br><br>When the tilt sensor detects a change in orientation, the code resets the timer, turning off all LEDs. This creates the so-called "Digital Hourglass".
+            </p>
             <br><br>
-            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
+            <h2>Demo</h2>
+            <img height="auto" width="40%" src="media/arduino-8/digitalhourglass.gif" alt="Digital Hourglass Demo">
         </section>
     </main>
 

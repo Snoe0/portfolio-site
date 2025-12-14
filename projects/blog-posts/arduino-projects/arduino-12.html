@@ -32,29 +32,189 @@
 
     <main>
         <section class="hero">
-            <h1>Arduino HW 6 - Light Theremin</h1>
+            <h1>Arduino HW 12 - Knock Lock</h1>
             <p class="subtitle">IGME 470</p>
         </section>
 
         <section id="explanation">
             <p>
-                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
+                HW 12, the "Knock Lock" utilizes the piezo sensor as an input, rather than an output. Piezos are capable of sensing vibrations in addition to making sound. This assignment uses the piezo to detect knocks, locking and unlocking based on a sequence of knocks. <br><br>This was a great lesson in using the Piezo, a component with multiple use cases. Sensing vibrations can have a variety of applications, from security systems to interactive installations. The challenge of accurately detecting knocks and filtering out noise made this project particularly engaging.
             </p>
+            <br>
+            <img height="auto" width="40%" src="media/arduino-12/12schematicimg.png" alt="Knock Lock Schematic">
+            <br>
+            <img height="auto" width="40%" src="media/arduino-12/12tinkerimg.png" alt="TinkerCad Circuit">
+            <br>
+            <img height="auto" width="40%" src="media/arduino-12/12build.jpg" alt="Knock Lock Build">
             <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
-            <br><br>
-            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <p><b>The parts used:</b></p>
             <ul>
-                <li>1x Phototransistor</li>
-                <li>1x Piezo Speaker</li>
-                <li>1x 10kΩ Resistor</li>
+                <li>1x Arduino Uno R3</li>
+                <li>1x Piezo</li>
+                <li>1x Red LED</li>
+                <li>1x Yellow LED</li>
+                <li>1x Green LED</li>
+                <li>1x Pushbutton</li>
+                <li>1x 1 MΩ Resistor</li>
+                <li>1x 10 kΩ Resistor</li>
+                <li>3x 220 Ω Resistors</li>
+                <li>1x 100 uF Capacitor</li>
+                <li>1x Servo Motor</li>
             </ul>
             <br>
-            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <details>
+                <summary style="cursor: pointer; font-weight: bold; padding: 10px; background: #303030; border-radius: 5px;">Click to view full Arduino code</summary>
+                <pre style="background: #303030; padding: 15px; border-radius: 5px; overflow-x: auto; max-height: 500px; overflow-y: auto; margin-top: 10px;"><code>// import the library
+#include &lt;Servo.h&gt;
+// create an instance of the Servo library
+Servo myServo;
+
+const int piezo = A0;     // pin the piezo is attached to
+const int switchPin = 2;  // pin the switch is attached to
+const int yellowLed = 3;  // pin the yellow LED is attached to
+const int greenLed = 4;   // pin the green LED is attached to
+const int redLed = 5;     // pin the red LED is attached to
+
+// variable for the piezo value
+int knockVal;
+// variable for the switch value
+int switchVal;
+
+// variables for the high and low limits of the knock value
+const int quietKnock = 10;
+const int loudKnock = 100;
+
+// variable to indicate if locked or not
+bool locked = false;
+// how many valid knocks you've received
+int numberOfKnocks = 0;
+
+void setup() {
+  // attach the servo to pin 9
+  myServo.attach(9);
+
+  // make the LED pins outputs
+  pinMode(yellowLed, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+
+  // set the switch pin as an input
+  pinMode(switchPin, INPUT);
+
+  // start serial communication for debugging
+  Serial.begin(9600);
+
+  // turn the green LED on
+  digitalWrite(greenLed, HIGH);
+
+  // move the servo to the unlocked position
+  myServo.write(0);
+
+  // print status to the Serial Monitor
+  Serial.println("the box is unlocked!");
+}
+
+void loop() {
+
+  // if the box is unlocked
+  if (locked == false) {
+
+    // read the value of the switch pin
+    switchVal = digitalRead(switchPin);
+
+    // if the button is pressed, lock the box
+    if (switchVal == HIGH) {
+      // set the locked variable to "true"
+      locked = true;
+
+      // change the status LEDs
+      digitalWrite(greenLed, LOW);
+      digitalWrite(redLed, HIGH);
+
+      // move the servo to the locked position
+      myServo.write(90);
+
+      // print out status
+      Serial.println("the box is locked!");
+
+      // wait for the servo to move into position
+      delay(1000);
+    }
+  }
+
+  // if the box is locked
+  if (locked == true) {
+
+    // check the value of the piezo
+    knockVal = analogRead(piezo);
+
+    // if there are not enough valid knocks
+    if (numberOfKnocks &lt; 3 &amp;&amp; knockVal &gt; 0) {
+
+      // check to see if the knock is in range
+      if (checkForKnock(knockVal) == true) {
+
+        // increment the number of valid knocks
+        numberOfKnocks++;
+      }
+
+      // print status of knocks
+      Serial.print(3 - numberOfKnocks);
+      Serial.println(" more knocks to go");
+    }
+
+    // if there are three knocks
+    if (numberOfKnocks &gt;= 3) {
+      // unlock the box
+      locked = false;
+
+      // move the servo to the unlocked position
+      myServo.write(0);
+
+      // wait for it to move
+      delay(20);
+
+      // change status LEDs
+      digitalWrite(greenLed, HIGH);
+      digitalWrite(redLed, LOW);
+      Serial.println("the box is unlocked!");
+
+      numberOfKnocks = 0;
+    }
+  }
+}
+
+// this function checks to see if a detected knock is within max and min range
+bool checkForKnock(int value) {
+  // if the value of the knock is greater than the minimum, and less than the maximum
+  if (value &gt; quietKnock &amp;&amp; value &lt; loudKnock) {
+    // turn the status LED on
+    digitalWrite(yellowLed, HIGH);
+    delay(50);
+    digitalWrite(yellowLed, LOW);
+    // print out the status
+    Serial.print("Valid knock of value ");
+    Serial.println(value);
+    // return true
+    return true;
+  }
+  // if the knock is not within range
+  else {
+    // print status
+    Serial.print("Bad knock value ");
+    Serial.println(value);
+    // return false
+    return false;
+  }
+}</code></pre>
+            </details>
+            <br>
+            <p>
+                The code works by continuously monitoring the piezo sensor for knocks when the box is locked. Each valid knock within a min and max range increments a counter. Once three valid knocks are detected, the box unlocks by moving the servo to the open position. The pushbutton allows the user to lock the box again. The LEDs simply provide visual feedback on the lock status and knock detection.
+            </p>
             <br><br>
-            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
+            <h2>Demo</h2>
+            <img height="auto" width="40%" src="media/arduino-12/12demo.gif" alt="Knock Lock Demo">
         </section>
     </main>
 

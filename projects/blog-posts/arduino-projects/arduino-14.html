@@ -22,7 +22,7 @@
             <div class="menu">
                 <a href="/#projects">Projects</a>
                 <a href="/about.html">About</a>
-                <a href="#contact">Contact</a>
+                <a href="/#contact">Contact</a>
                 <a href="/projects/blog-posts/blog-posts.html">Blog</a>
                 <a href="/resume.pdf" target="_blank">Resume</a>
             </div>
@@ -32,29 +32,155 @@
 
     <main>
         <section class="hero">
-            <h1>Arduino HW 6 - Light Theremin</h1>
+            <h1>Arduino HW 14 - Tweak the Logo</h1>
             <p class="subtitle">IGME 470</p>
         </section>
 
         <section id="explanation">
             <p>
-                The Light Theremin assignment is the first time I have used sound through the Arduino. It was a simple project, using a photoresistor to control the pitch of a piezo speaker. The more light that hits the photoresistor, the higher the pitch. <br><br>Overall, this project was a great way to learn about using sound with the Arduino and how to use analog inputs to control outputs.
+                HW14, the "Tweak the Logo" assignment is the culmination of serial communication assignments, communicating between Arduino and Processing to create an interactive visual experience. In this project, a potentiometer connected to the Arduino sends values through the serial port to a Processing sketch, which uses those values to change the background hue of an image. <br><br>This assignment showcases the power of combining physical computing with visual programming. By turning the potentiometer, you can cycle through the entire color spectrum. This is a simple but effective demonstration of what can be done using physical computing to create interactive experiences, such as an art installation.
             </p>
+            <br>
+            <img height="auto" width="40%" src="media/arduino-14/14schematic.png" alt="Tweak the Logo Schematic">
             <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-buildout.png" alt="Light Theremin Arduino Setup">
-            <br><br>
-            <img height="auto" width="40%" src="media/arduino-6/06-code.png" alt="Light Theremin Code">
-            <br><br>
-            <p>Above is the code and the wiring for the assignment built in Tinkercad. It was actually very simple, with the only parts being:</p>
+            <p><b>The parts used:</b></p>
             <ul>
-                <li>1x Phototransistor</li>
-                <li>1x Piezo Speaker</li>
-                <li>1x 10kΩ Resistor</li>
+                <li>1x Arduino Uno R3</li>
+                <li>1x 250 kΩ Potentiometer</li>
             </ul>
             <br>
-            <p>The code uses the embedded LED on the Arduino Uno to give feedback that it is calibrating the light sensor, and then loops, mapping the sensor's values to a range of 50 - 4000, playing that output as a pitch on the Piezo Speaker.</p>
+            <h3>Arduino Code</h3>
+            <details>
+                <summary style="cursor: pointer; font-weight: bold; padding: 10px; background: #303030; border-radius: 5px;">Click to view Arduino code</summary>
+                <pre style="background: #303030; padding: 15px; border-radius: 5px; overflow-x: auto; max-height: 500px; overflow-y: auto; margin-top: 10px;"><code>// import the serial library
+import processing.serial.*;
+
+// create an instance of the serial library
+Serial myPort;
+
+// create an instance of PImage
+PImage logo;
+
+// a variable to hold the background color
+int bgcolor = 0;
+
+void setup() {
+  size(1, 1);
+  surface.setResizable(true);
+  // set the color mode to Hue/Saturation/Brightness
+  colorMode(HSB, 255);
+
+  // load the Arduino logo into the PImage instance
+  logo = loadImage("http://www.arduino.cc/arduino_logo.png");
+
+  // make the window the same size as the image
+  surface.setSize(logo.width, logo.height);
+
+  // print a list of available serial ports to the Processing status window
+  println("Available serial ports:");
+  println(Serial.list());
+
+  // Tell the serial object the information it needs to communicate with the
+  // Arduino. Change Serial.list()[0] to the correct port corresponding to
+  // your Arduino board.  The last parameter (e.g. 9600) is the speed of the
+  // communication.  It has to correspond to the value passed to
+  // Serial.begin() in your Arduino sketch.
+  myPort = new Serial(this, Serial.list()[0], 9600);
+
+  // If you know the name of the port used by the Arduino board, you can
+  // specify it directly like this.
+  // port = new Serial(this, "COM1", 9600);
+}
+
+void draw() {
+
+  // if there is information in the serial port
+  if (myPort.available() &gt; 0) {
+    // read the value and store it in a variable
+    bgcolor = myPort.read();
+
+    // print the value to the status window
+    println(bgcolor);
+  }
+
+  // Draw the background. the variable bgcolor contains the Hue, determined by
+  // the value from the serial port
+  background(bgcolor, 255, 255);
+
+  // draw the Arduino logo
+  image(logo, 0, 0);
+}</code></pre>
+            </details>
+            <br>
+            <h3>Processing Code</h3>
+            <details>
+                <summary style="cursor: pointer; font-weight: bold; padding: 10px; background: #303030; border-radius: 5px;">Click to view Processing code</summary>
+                <pre style="background: #303030; padding: 15px; border-radius: 5px; overflow-x: auto; max-height: 500px; overflow-y: auto; margin-top: 10px;"><code>// import the serial library
+import processing.serial.*;
+
+// create an instance of the serial library
+Serial myPort;
+
+// create an instance of PImage
+PImage logo;
+
+// a variable to hold the background color
+int bgcolor = 0;
+
+void setup() {
+  size(1, 1);
+  surface.setResizable(true);
+  // set the color mode to Hue/Saturation/Brightness
+  colorMode(HSB, 255);
+
+  // load the Arduino logo into the PImage instance
+  logo = loadImage("https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-in-shirt-smiles-and-gives-thumbs-up-to-show-approval-png-image_13146336.png");
+
+  // make the window the same size as the image
+  surface.setSize(logo.width, logo.height);
+
+  // print a list of available serial ports to the Processing status window
+  println("Available serial ports:");
+  println(Serial.list());
+
+  // Tell the serial object the information it needs to communicate with the
+  // Arduino. Change Serial.list()[0] to the correct port corresponding to
+  // your Arduino board.  The last parameter (e.g. 9600) is the speed of the
+  // communication.  It has to correspond to the value passed to
+  // Serial.begin() in your Arduino sketch.
+  //myPort = new Serial(this, Serial.list()[0], 9600);
+
+  // If you know the name of the port used by the Arduino board, you can
+  // specify it directly like this.
+  myPort = new Serial(this, "COM8", 9600);
+}
+
+void draw() {
+
+  // if there is information in the serial port
+  if ( myPort.available() &gt; 0) {
+    // read the value and store it in a variable
+    bgcolor = myPort.read();
+
+    // print the value to the status window
+    println(bgcolor);
+  }
+
+  // Draw the background. the variable bgcolor contains the Hue, determined by
+  // the value from the serial port
+  background(bgcolor, 255, 255);
+
+  // draw the Arduino logo
+  image(logo, 0, 0);
+}</code></pre>
+            </details>
+            <br>
+            <p>
+                The Arduino wiring is very simple, it is mostly in the code. The code reads the analog value from the potentiometer (0-1023) and sends it over the serial port to Processing, a rendering program which is very similar to the Arduino IDE. The Processing sketch receives this value and maps it to the Hue, where the value controls the hue component of the background color. <br><br>The Processing sketch loads an image and resizes the window to match the image dimensions. As serial data arrives, it updates the background color's "R"/red value.
+            </p>
             <br><br>
-            <iframe height="600px" width="50%" src="https://www.youtube.com/embed/9IvKXeX0wrI"></iframe>
+            <h2>Demo</h2>
+            <img height="auto" width="40%" src="media/arduino-14/14demo.gif" alt="Tweak the Logo Demo">
         </section>
     </main>
 

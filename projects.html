@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Yuri Korolev</title>
+    <meta name="description" content="Complete portfolio of projects and work">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Yuri Korolev</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Projects Header -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in-up">
+                    <h1>All Projects</h1>
+                    <p class="hero-subtitle">A comprehensive look at my work</p>
+                    <p class="hero-description">
+                        Explore my complete portfolio of projects, from web applications to design systems.
+                        Each project represents a unique challenge and innovative solution.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Projects Section -->
+        <section class="section" id="all-projects">
+            <div class="container">
+                <div class="projects-grid">
+                    <!-- Featured Projects -->
+                    <div class="project-thumbnail" data-project="dashboard">
+                        <div class="project-thumbnail-content">
+                            <h3 class="project-thumbnail-title">Modern Dashboard</h3>
+                            <p class="project-thumbnail-description">
+                                A responsive dashboard application built with React and TypeScript, featuring
+                                real-time data visualization and an intuitive user interface.
+                            </p>
+                            <div class="project-thumbnail-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">CSS Grid</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-thumbnail" data-project="ecommerce">
+                        <div class="project-thumbnail-content">
+                            <h3 class="project-thumbnail-title">E-commerce Platform</h3>
+                            <p class="project-thumbnail-description">
+                                Full-featured e-commerce solution with shopping cart, payment integration,
+                                and admin dashboard. Built with modern web technologies.
+                            </p>
+                            <div class="project-thumbnail-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Stripe</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-thumbnail" data-project="pwa">
+                        <div class="project-thumbnail-content">
+                            <h3 class="project-thumbnail-title">Mobile-First PWA</h3>
+                            <p class="project-thumbnail-description">
+                                Progressive web app with offline capabilities, push notifications,
+                                and responsive design optimized for mobile devices.
+                            </p>
+                            <div class="project-thumbnail-tech">
+                                <span class="tech-tag">PWA</span>
+                                <span class="tech-tag">Service Worker</span>
+                                <span class="tech-tag">CSS Grid</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Projects -->
+                    <div class="project-thumbnail" data-project="portfolio">
+                        <div class="project-thumbnail-content">
+                            <h3 class="project-thumbnail-title">Portfolio Website</h3>
+                            <p class="project-thumbnail-description">
+                                A clean, modern portfolio showcasing projects and skills with smooth animations
+                                and responsive design patterns.
+                            </p>
+                            <div class="project-thumbnail-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-thumbnail" data-project="api">
+                        <div class="project-thumbnail-content">
+                            <h3 class="project-thumbnail-title">REST API Service</h3>
+                            <p class="project-thumbnail-description">
+                                Scalable REST API built with Node.js and Express, featuring authentication,
+                                data validation, and comprehensive documentation.
+                            </p>
+                            <div class="project-thumbnail-tech">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-thumbnail" data-project="design-system">
+                        <div class="project-thumbnail-content">
+                            <h3 class="project-thumbnail-title">Design System</h3>
+                            <p class="project-thumbnail-description">
+                                Comprehensive design system with reusable components, style guide,
+                                and documentation for consistent user experiences.
+                            </p>
+                            <div class="project-thumbnail-tech">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Storybook</span>
+                                <span class="tech-tag">React</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Let's Work Together</h2>
+                    <p class="hero-description">
+                        Interested in collaborating on a project? I'd love to hear from you.
+                    </p>
+                    <div class="mt-4">
+                        <a href="mailto:your.email@example.com" class="btn btn-primary">Get In Touch</a>
+                        <a href="resume.html" class="btn">View Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modals (same as index.html) -->
+        <div class="project-modal" id="dashboard-modal">
+            <div class="project-modal-content">
+                <div class="project-modal-header">
+                    <button class="project-modal-close" aria-label="Close">&times;</button>
+                    <h2 class="project-modal-title">Modern Dashboard</h2>
+                    <p class="project-modal-description">
+                        A responsive dashboard application built with React and TypeScript
+                    </p>
+                </div>
+                <div class="project-modal-body">
+                    <div class="project-modal-image">📊</div>
+                    <div class="project-modal-details">
+                        <h3>Project Overview</h3>
+                        <p>This modern dashboard application demonstrates advanced React patterns, TypeScript implementation, and real-time data visualization. Built with performance and accessibility in mind.</p>
+
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Real-time data updates</li>
+                            <li>Interactive charts and graphs</li>
+                            <li>Responsive grid layout</li>
+                            <li>Dark/light theme support</li>
+                        </ul>
+
+                        <div class="project-modal-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">CSS Grid</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+
+                        <div class="project-modal-links">
+                            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
+                            <a href="#" class="btn" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-modal" id="ecommerce-modal">
+            <div class="project-modal-content">
+                <div class="project-modal-header">
+                    <button class="project-modal-close" aria-label="Close">&times;</button>
+                    <h2 class="project-modal-title">E-commerce Platform</h2>
+                    <p class="project-modal-description">
+                        Full-featured e-commerce solution with modern web technologies
+                    </p>
+                </div>
+                <div class="project-modal-body">
+                    <div class="project-modal-image">🛒</div>
+                    <div class="project-modal-details">
+                        <h3>Project Overview</h3>
+                        <p>A complete e-commerce platform featuring shopping cart functionality, secure payment processing, and comprehensive admin dashboard for managing products and orders.</p>
+
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Product catalog with search and filters</li>
+                            <li>Shopping cart and checkout process</li>
+                            <li>Secure payment integration with Stripe</li>
+                            <li>Admin dashboard for inventory management</li>
+                            <li>User authentication and profiles</li>
+                        </ul>
+
+                        <div class="project-modal-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Stripe</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+
+                        <div class="project-modal-links">
+                            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
+                            <a href="#" class="btn" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-modal" id="pwa-modal">
+            <div class="project-modal-content">
+                <div class="project-modal-header">
+                    <button class="project-modal-close" aria-label="Close">&times;</button>
+                    <h2 class="project-modal-title">Mobile-First PWA</h2>
+                    <p class="project-modal-description">
+                        Progressive web app optimized for mobile devices
+                    </p>
+                </div>
+                <div class="project-modal-body">
+                    <div class="project-modal-image">📱</div>
+                    <div class="project-modal-details">
+                        <h3>Project Overview</h3>
+                        <p>A progressive web application that delivers a native app-like experience with offline functionality, push notifications, and responsive design across all device sizes.</p>
+
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Offline functionality with service workers</li>
+                            <li>Push notification support</li>
+                            <li>App-like navigation and interactions</li>
+                            <li>Responsive design for all screen sizes</li>
+                            <li>Fast loading with caching strategies</li>
+                        </ul>
+
+                        <div class="project-modal-tech">
+                            <span class="tech-tag">PWA</span>
+                            <span class="tech-tag">Service Worker</span>
+                            <span class="tech-tag">CSS Grid</span>
+                            <span class="tech-tag">Web Manifest</span>
+                        </div>
+
+                        <div class="project-modal-links">
+                            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
+                            <a href="#" class="btn" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional project modals for projects page only -->
+        <div class="project-modal" id="portfolio-modal">
+            <div class="project-modal-content">
+                <div class="project-modal-header">
+                    <button class="project-modal-close" aria-label="Close">&times;</button>
+                    <h2 class="project-modal-title">Portfolio Website</h2>
+                    <p class="project-modal-description">
+                        A clean, modern portfolio showcasing projects and skills
+                    </p>
+                </div>
+                <div class="project-modal-body">
+                    <div class="project-modal-image">🎨</div>
+                    <div class="project-modal-details">
+                        <h3>Project Overview</h3>
+                        <p>This portfolio website was built with modern web standards, focusing on performance, accessibility, and clean design. Features smooth animations and responsive layouts.</p>
+
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Responsive design across all devices</li>
+                            <li>Smooth scroll animations</li>
+                            <li>Optimized performance</li>
+                            <li>Accessible navigation and interactions</li>
+                        </ul>
+
+                        <div class="project-modal-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-modal-links">
+                            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
+                            <a href="#" class="btn" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="mailto:your.email@example.com">Email</a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+                <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+            </ul>
+            <p class="footer-text">&copy; 2025 Yuri Korolev. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

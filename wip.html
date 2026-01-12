@@ -3,49 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work in Progress | Yuri Korolev</title>
-    <link rel="stylesheet" href="styles/main.css?v=1.0.1">
+    <title>Work in Progress - Yuri Korolev</title>
+    <meta name="description" content="Coming soon - exciting projects in development">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="canvas-container"></div>
-    
-    <header>
-        <nav>
-            <div class="logo">Yuri Korolev</div>
-            <div class="menu">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="#contact">Contact</a>
-                <a href="resume.pdf" target="_blank">Resume</a>
-            </div>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Yuri Korolev</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Work in Progress</h1>
-            <p class="subtitle">Something exciting is coming soon</p>
-        </section>
+        <!-- WIP Content -->
+        <section class="wip-page">
+            <div class="wip-content fade-in-up">
+                <div class="wip-icon">🚧</div>
+                <h1>Work in Progress</h1>
+                <p class="hero-description">
+                    Exciting new projects are currently under development.
+                    I'm working on innovative solutions and creative experiments
+                    that will be showcased here soon.
+                </p>
 
-        <section class="wip-content">
-            <div class="wip-animation">
-                <div class="wip-circle"></div>
-                <div class="wip-circle"></div>
-                <div class="wip-circle"></div>
+                <div class="mt-4">
+                    <h3>Coming Soon</h3>
+                    <div class="skills-grid mt-2" style="max-width: 600px; margin: 2rem auto;">
+                        <div class="skill-category">
+                            <h3>🤖 AI Integration</h3>
+                            <p>Exploring machine learning applications in web development and user experience enhancement.</p>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>🎨 Design System</h3>
+                            <p>Building a comprehensive design system with reusable components and design tokens.</p>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>⚡ Performance Lab</h3>
+                            <p>Experimenting with cutting-edge performance optimization techniques and tools.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="index.html" class="btn btn-primary">Back to Home</a>
+                    <a href="projects.html" class="btn">View Current Projects</a>
+                </div>
+
+                <div class="mt-4">
+                    <p style="color: #666; font-size: 0.9rem;">
+                        Want to be notified when new projects are released?<br>
+                        <a href="mailto:your.email@example.com" style="color: #000; font-weight: 500;">Drop me a line</a>
+                    </p>
+                </div>
             </div>
-            <p>This page is currently under construction. Check back soon for updates!</p>
         </section>
     </main>
 
-    <footer>
-        <p>© 2024 Yuri Korolev. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="mailto:your.email@example.com">Email</a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+                <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+            </ul>
+            <p class="footer-text">&copy; 2025 Yuri Korolev. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="js/background.js"></script>
-    <script src="js/theme.js"></script>
+    <script src="script.js"></script>
 </body>
 </html> 

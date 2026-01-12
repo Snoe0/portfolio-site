@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Yuri Korolev</title>
+    <meta name="description" content="Professional resume and experience">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Yuri Korolev</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Resume Header -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in-up">
+                    <h1>Resume</h1>
+                    <p class="hero-subtitle">Professional Experience & Skills</p>
+                    <p class="hero-description">
+                        Download my complete resume or view the embedded version below.
+                        Always open to discussing new opportunities and collaborations.
+                    </p>
+                    <div class="mt-3">
+                        <a href="resume.pdf" class="btn btn-primary" target="_blank">Download PDF</a>
+                        <a href="mailto:your.email@example.com" class="btn">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Embed Section -->
+        <section class="section">
+            <div class="container">
+                <div style="background: #f5f5f5; border-radius: 8px; padding: 2rem; text-align: center; margin-bottom: 2rem;">
+                    <h3>Resume Preview</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">
+                        Your resume PDF will be embedded here. If you can't see it,
+                        <a href="resume.pdf" target="_blank" style="color: #000; font-weight: 500;">click here to download</a>.
+                    </p>
+                </div>
+
+                <!-- PDF Embed -->
+                <div style="position: relative; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                    <iframe
+                        src="resume.pdf"
+                        class="resume-embed"
+                        title="Resume PDF">
+                        <p>Your browser doesn't support PDF embedding.
+                           <a href="resume.pdf" target="_blank">Download the PDF</a> instead.
+                        </p>
+                    </iframe>
+                </div>
+
+                <!-- Fallback Content for Mobile or Unsupported Browsers -->
+                <div class="mt-4 text-center">
+                    <p style="color: #666; font-size: 0.9rem;">
+                        Having trouble viewing the resume?
+                        <a href="resume.pdf" target="_blank" style="color: #000; font-weight: 500;">
+                            Open in new window
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Summary Section -->
+        <section class="section" style="background: #f5f5f5;">
+            <div class="container">
+                <h2 class="text-center">Quick Summary</h2>
+                <div class="skills-grid">
+                    <div class="skill-category" style="background: white;">
+                        <h3>Experience</h3>
+                        <ul class="skill-list">
+                            <li>5+ years in Frontend Development</li>
+                            <li>3+ years with React/Next.js</li>
+                            <li>2+ years in UI/UX Design</li>
+                            <li>Multiple successful project launches</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category" style="background: white;">
+                        <h3>Core Technologies</h3>
+                        <ul class="skill-list">
+                            <li>JavaScript, TypeScript</li>
+                            <li>React, Next.js, Vue.js</li>
+                            <li>Node.js, Express</li>
+                            <li>HTML5, CSS3, Sass</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category" style="background: white;">
+                        <h3>Recent Achievements</h3>
+                        <ul class="skill-list">
+                            <li>Led team of 4 developers</li>
+                            <li>Improved app performance by 40%</li>
+                            <li>Launched 3 major features</li>
+                            <li>Mentored 2 junior developers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Call to Action -->
+        <section class="section">
+            <div class="container text-center">
+                <h2>Let's Work Together</h2>
+                <p class="hero-description">
+                    I'm always interested in hearing about new opportunities,
+                    freelance projects, or just connecting with fellow developers.
+                </p>
+                <div class="mt-3">
+                    <a href="mailto:your.email@example.com" class="btn btn-primary">Send Email</a>
+                    <a href="https://linkedin.com/in/yourprofile" class="btn" target="_blank">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="mailto:your.email@example.com">Email</a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+                <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
+            </ul>
+            <p class="footer-text">&copy; 2025 Yuri Korolev. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

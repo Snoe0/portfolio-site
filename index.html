@@ -1,271 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuri Korolev - Portfolio</title>
-    <meta name="description" content="Professional portfolio showcasing projects, skills, and experience">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Yuri Korolev - Portfolio</title>
+   <meta name="description" content="Professional portfolio showcasing projects, skills, and experience">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="styles.css">
+   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
 </head>
+
 <body>
-    <!-- Header Navigation -->
-    <header class="header">
-        <nav class="nav">
-            <a href="#" class="logo">Yuri Korolev</a>
-            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-            </ul>
-        </nav>
-    </header>
+   <!-- Header Navigation -->
+   <header class="header">
+      <nav class="nav">
+         <a href="#" class="logo">Yuri Korolev</a>
+         <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+         <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+         </ul>
+      </nav>
+   </header>
 
-    <main>
-        <!-- 3D Spline Hero Section -->
-        <section class="spline-hero">
-            <div class="spline-container">
-                <spline-viewer url="https://prod.spline.design/BNTBAenoXY7bMrO5/scene.splinecode"></spline-viewer>
+   <main>
+      <!-- 3D Spline Hero Section -->
+      <section class="spline-hero">
+         <div class="spline-container">
+            <spline-viewer url="https://prod.spline.design/BNTBAenoXY7bMrO5/scene.splinecode"></spline-viewer>
+         </div>
+         <div class="interactive-text-overlay">
+            <h1 class="interactive-title" id="interactive-title">Yuri Korolev</h1>
+         </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="section" id="skills">
+         <div class="container">
+            <h2 class="text-center">Skills & Expertise</h2>
+            <div class="skills-grid">
+               <div class="skill-category">
+                  <h3>Development</h3>
+                  <ul class="skill-list">
+                     <li>JavaScript</li>
+                     <li>TypeScript</li>
+                     <li>Python</li>
+                     <li>C#</li>
+                     <li>HTML & CSS</li>
+                     <li>Unity / Unreal Engine</li>
+                  </ul>
+               </div>
+               <div class="skill-category">
+                  <h3>Design & UI/UX</h3>
+                  <ul class="skill-list">
+                     <li>Spline</li>
+                     <li>Figma</li>
+                     <li>React.js</li>
+                     <li>Adobe Certified Professional</li>
+                     <li>Interactive Design and Psychology</li>
+                     <li>Accessibility (WCAG)</li>
+                  </ul>
+               </div>
+               <div class="skill-category">
+                  <h3>Tools & Technologies</h3>
+                  <ul class="skill-list">
+                     <li>Git / GitHub</li>
+                     <li>Node.js</li>
+                     <li>Webpack / Vite</li>
+                     <li>Arduino / Physical Computing</li>
+                     <li>Performance Optimization</li>
+                  </ul>
+               </div>
             </div>
-            <div class="interactive-text-overlay">
-                <h1 class="interactive-title" id="interactive-title">Yuri Korolev</h1>
+         </div>
+      </section>
+
+      <!-- Featured Projects Section -->
+      <section class="section" id="projects">
+         <div class="container">
+            <h2 class="text-center">Featured Projects</h2>
+            <div class="projects-grid">
+               <a href="wip.html" class="project-thumbnail">
+                  <div class="project-thumbnail-content">
+                     <h3 class="project-thumbnail-title">Stock Trading Journal</h3>
+                     <p class="project-thumbnail-description">
+                        A responsive dashboard application built with React and JavaScript, featuring
+                        account logins and session storage.
+                     </p>
+                     <div class="project-thumbnail-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Gridstack.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                     </div>
+                  </div>
+               </a>
+
+               <a href="wip.html" class="project-thumbnail">
+                  <div class="project-thumbnail-content">
+                     <h3 class="project-thumbnail-title">Algorithmic Trading System</h3>
+                     <p class="project-thumbnail-description">
+                        A system for automated trading and stock analysis from a variety of data sources and brokerages. Designed for simple algorithm creation and easy brokerage connections.
+                     </p>
+                     <div class="project-thumbnail-tech">
+                        <span class="tech-tag">Typescript</span>
+                        <span class="tech-tag">Websockets</span>
+                        <span class="tech-tag">Webhooks</span>
+                        <span class="tech-tag">APIs</span>
+                        <span class="tech-tag">SSH</span>
+                     </div>
+                  </div>
+               </a>
             </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section class="section" id="skills">
-            <div class="container">
-                <h2 class="text-center">Skills & Expertise</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Frontend Development</h3>
-                        <ul class="skill-list">
-                            <li>JavaScript (ES6+)</li>
-                            <li>React / Next.js</li>
-                            <li>TypeScript</li>
-                            <li>HTML5 & CSS3</li>
-                            <li>Responsive Design</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Design & UI/UX</h3>
-                        <ul class="skill-list">
-                            <li>Figma / Adobe XD</li>
-                            <li>User Interface Design</li>
-                            <li>Prototyping</li>
-                            <li>Design Systems</li>
-                            <li>Accessibility (WCAG)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Tools & Technologies</h3>
-                        <ul class="skill-list">
-                            <li>Git / GitHub</li>
-                            <li>Node.js</li>
-                            <li>Webpack / Vite</li>
-                            <li>CSS Preprocessors</li>
-                            <li>Performance Optimization</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="text-center mt-4">
+               <a href="projects.html" class="btn">View All Projects</a>
             </div>
-        </section>
+         </div>
+      </section>
 
-        <!-- Featured Projects Section -->
-        <section class="section" id="projects">
-            <div class="container">
-                <h2 class="text-center">Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-thumbnail" data-project="dashboard">
-                        <div class="project-thumbnail-content">
-                            <h3 class="project-thumbnail-title">Modern Dashboard</h3>
-                            <p class="project-thumbnail-description">
-                                A responsive dashboard application built with React and TypeScript, featuring
-                                real-time data visualization and an intuitive user interface.
-                            </p>
-                            <div class="project-thumbnail-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">CSS Grid</span>
-                            </div>
-                        </div>
-                    </div>
+   </main>
 
-                    <div class="project-thumbnail" data-project="ecommerce">
-                        <div class="project-thumbnail-content">
-                            <h3 class="project-thumbnail-title">E-commerce Platform</h3>
-                            <p class="project-thumbnail-description">
-                                Full-featured e-commerce solution with shopping cart, payment integration,
-                                and admin dashboard. Built with modern web technologies.
-                            </p>
-                            <div class="project-thumbnail-tech">
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Stripe</span>
-                            </div>
-                        </div>
-                    </div>
+   <!-- Footer -->
+   <footer class="footer">
+      <div class="container">
+         <ul class="footer-links">
+            <li><a href="mailto:yurikorolev99@gmail.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/yuriikorolev" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/Snoe0" target="_blank">GitHub</a></li>
+         </ul>
+         <p class="footer-text">&copy; 2026 Yuri Korolev. All rights reserved.</p>
+      </div>
+   </footer>
 
-                    <div class="project-thumbnail" data-project="pwa">
-                        <div class="project-thumbnail-content">
-                            <h3 class="project-thumbnail-title">Mobile-First Design</h3>
-                            <p class="project-thumbnail-description">
-                                Progressive web app with offline capabilities, push notifications,
-                                and responsive design optimized for mobile devices.
-                            </p>
-                            <div class="project-thumbnail-tech">
-                                <span class="tech-tag">PWA</span>
-                                <span class="tech-tag">Service Worker</span>
-                                <span class="tech-tag">CSS Grid</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-4">
-                    <a href="projects.html" class="btn">View All Projects</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project Modals -->
-        <div class="project-modal" id="dashboard-modal">
-            <div class="project-modal-content">
-                <div class="project-modal-header">
-                    <button class="project-modal-close" aria-label="Close">&times;</button>
-                    <h2 class="project-modal-title">Modern Dashboard</h2>
-                    <p class="project-modal-description">
-                        A responsive dashboard application built with React and TypeScript
-                    </p>
-                </div>
-                <div class="project-modal-body">
-                    <div class="project-modal-image">📊</div>
-                    <div class="project-modal-details">
-                        <h3>Project Overview</h3>
-                        <p>This modern dashboard application demonstrates advanced React patterns, TypeScript implementation, and real-time data visualization. Built with performance and accessibility in mind.</p>
-
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Real-time data updates</li>
-                            <li>Interactive charts and graphs</li>
-                            <li>Responsive grid layout</li>
-                            <li>Dark/light theme support</li>
-                        </ul>
-
-                        <div class="project-modal-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">CSS Grid</span>
-                            <span class="tech-tag">Chart.js</span>
-                        </div>
-
-                        <div class="project-modal-links">
-                            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
-                            <a href="#" class="btn" target="_blank">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-modal" id="ecommerce-modal">
-            <div class="project-modal-content">
-                <div class="project-modal-header">
-                    <button class="project-modal-close" aria-label="Close">&times;</button>
-                    <h2 class="project-modal-title">E-commerce Platform</h2>
-                    <p class="project-modal-description">
-                        Full-featured e-commerce solution with modern web technologies
-                    </p>
-                </div>
-                <div class="project-modal-body">
-                    <div class="project-modal-image">🛒</div>
-                    <div class="project-modal-details">
-                        <h3>Project Overview</h3>
-                        <p>A complete e-commerce platform featuring shopping cart functionality, secure payment processing, and comprehensive admin dashboard for managing products and orders.</p>
-
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Product catalog with search and filters</li>
-                            <li>Shopping cart and checkout process</li>
-                            <li>Secure payment integration with Stripe</li>
-                            <li>Admin dashboard for inventory management</li>
-                            <li>User authentication and profiles</li>
-                        </ul>
-
-                        <div class="project-modal-tech">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Stripe</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-
-                        <div class="project-modal-links">
-                            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
-                            <a href="#" class="btn" target="_blank">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-modal" id="pwa-modal">
-            <div class="project-modal-content">
-                <div class="project-modal-header">
-                    <button class="project-modal-close" aria-label="Close">&times;</button>
-                    <h2 class="project-modal-title">Mobile-First PWA</h2>
-                    <p class="project-modal-description">
-                        Progressive web app optimized for mobile devices
-                    </p>
-                </div>
-                <div class="project-modal-body">
-                    <div class="project-modal-image">📱</div>
-                    <div class="project-modal-details">
-                        <h3>Project Overview</h3>
-                        <p>A progressive web application that delivers a native app-like experience with offline functionality, push notifications, and responsive design across all device sizes.</p>
-
-                        <h3>Key Features</h3>
-                        <ul>
-                            <li>Offline functionality with service workers</li>
-                            <li>Push notification support</li>
-                            <li>App-like navigation and interactions</li>
-                            <li>Responsive design for all screen sizes</li>
-                            <li>Fast loading with caching strategies</li>
-                        </ul>
-
-                        <div class="project-modal-tech">
-                            <span class="tech-tag">PWA</span>
-                            <span class="tech-tag">Service Worker</span>
-                            <span class="tech-tag">CSS Grid</span>
-                            <span class="tech-tag">Web Manifest</span>
-                        </div>
-
-                        <div class="project-modal-links">
-                            <a href="#" class="btn btn-primary" target="_blank">Live Demo</a>
-                            <a href="#" class="btn" target="_blank">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <ul class="footer-links">
-                <li><a href="mailto:your.email@example.com">Email</a></li>
-                <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-                <li><a href="https://twitter.com/yourusername" target="_blank">Twitter</a></li>
-            </ul>
-            <p class="footer-text">&copy; 2025 Yuri Korolev. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+   <script src="script.js"></script>
 </body>
+
 </html>

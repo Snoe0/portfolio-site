@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initAnimations();
     initThemeDetection();
-    initProjectModals();
     initInteractiveTitle();
 
     console.log('Portfolio template loaded successfully');
@@ -273,111 +272,6 @@ window.addEventListener('error', function(e) {
     // In production, you might want to send this to an error tracking service
 });
 
-// Project Modal System
-function initProjectModals() {
-    const projectThumbnails = document.querySelectorAll('.project-thumbnail');
-    const modals = document.querySelectorAll('.project-modal');
-    const closeButtons = document.querySelectorAll('.project-modal-close');
-
-    // Open modal when thumbnail is clicked
-    projectThumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', function() {
-            const projectId = this.getAttribute('data-project');
-            const modal = document.getElementById(projectId + '-modal');
-
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-
-                // Focus management for accessibility
-                modal.focus();
-
-                // Add keyboard navigation
-                handleModalKeyboard(modal);
-            }
-        });
-
-        // Add keyboard support for thumbnails
-        thumbnail.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.click();
-            }
-        });
-
-        // Make thumbnails focusable
-        thumbnail.setAttribute('tabindex', '0');
-    });
-
-    // Close modal when close button is clicked
-    closeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const modal = this.closest('.project-modal');
-            closeModal(modal);
-        });
-    });
-
-    // Close modal when clicking outside content
-    modals.forEach(modal => {
-        modal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal(this);
-            }
-        });
-    });
-
-    // Close modal with escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const activeModal = document.querySelector('.project-modal.active');
-            if (activeModal) {
-                closeModal(activeModal);
-            }
-        }
-    });
-}
-
-function closeModal(modal) {
-    modal.classList.remove('active');
-    document.body.style.overflow = ''; // Restore scrolling
-
-    // Return focus to the thumbnail that opened the modal
-    const projectId = modal.id.replace('-modal', '');
-    const thumbnail = document.querySelector(`[data-project="${projectId}"]`);
-    if (thumbnail) {
-        thumbnail.focus();
-    }
-}
-
-function handleModalKeyboard(modal) {
-    const focusableElements = modal.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const firstFocusable = focusableElements[0];
-    const lastFocusable = focusableElements[focusableElements.length - 1];
-
-    // Focus the first element
-    firstFocusable.focus();
-
-    // Trap focus within modal
-    modal.addEventListener('keydown', function(e) {
-        if (e.key === 'Tab') {
-            if (e.shiftKey) {
-                // Shift + Tab
-                if (document.activeElement === firstFocusable) {
-                    e.preventDefault();
-                    lastFocusable.focus();
-                }
-            } else {
-                // Tab
-                if (document.activeElement === lastFocusable) {
-                    e.preventDefault();
-                    firstFocusable.focus();
-                }
-            }
-        }
-    });
-}
 
 // Interactive Title System
 function initInteractiveTitle() {
@@ -498,6 +392,5 @@ function initInteractiveTitle() {
 window.portfolioUtils = {
     showNotification,
     debounce,
-    updateActiveNavigation,
-    closeModal
+    updateActiveNavigation
 };

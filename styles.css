@@ -213,6 +213,7 @@ a:hover {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
+  color: var(--primary-black);
 }
 
 /* Spline 3D Hero Section */
@@ -383,6 +384,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-thumbnail:hover {
@@ -771,6 +774,269 @@ a:hover {
 
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out;
+}
+
+/* Project Page Styles */
+.project-overview-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.overview-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.project-details-card {
+  background: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 16px;
+  padding: 2rem;
+  height: fit-content;
+}
+
+.project-details-card h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.detail-item strong {
+  color: var(--primary-black);
+  font-weight: 600;
+}
+
+.team-role {
+  display: none;
+}
+
+.team-role.show {
+  display: flex;
+}
+
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.image-item {
+  text-align: center;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 250px;
+  background: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.image-placeholder:hover {
+  background: var(--hover-gray);
+  transform: translateY(-2px);
+}
+
+.image-placeholder span {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.image-placeholder p {
+  font-weight: 600;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+.image-caption {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  background: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.feature-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.feature-item h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.challenges-list {
+  margin-top: 2rem;
+}
+
+.challenge-item {
+  background: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.challenge-item:last-child {
+  margin-bottom: 0;
+}
+
+.challenge-item h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.challenge-item p {
+  margin-bottom: 1rem;
+}
+
+.challenge-item p:last-child {
+  margin-bottom: 0;
+}
+
+.lessons-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.lessons-learned,
+.next-steps {
+  background: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.lessons-learned h3,
+.next-steps h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.lessons-learned ul,
+.next-steps ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lessons-learned li,
+.next-steps li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-gray);
+  position: relative;
+  padding-left: 2rem;
+}
+
+.lessons-learned li:before,
+.next-steps li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-black);
+  font-weight: 600;
+}
+
+.lessons-learned li:last-child,
+.next-steps li:last-child {
+  border-bottom: none;
+}
+
+.project-meta {
+  margin-top: 2rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Project Page Responsive */
+@media (max-width: 768px) {
+  .project-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .lessons-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .image-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .image-placeholder {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-details-card,
+  .feature-item,
+  .challenge-item,
+  .lessons-learned,
+  .next-steps {
+    margin: 0 -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
 }
 
 /* Print Styles */

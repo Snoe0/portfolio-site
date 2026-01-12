@@ -155,15 +155,15 @@ a:hover {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--primary-white);
-  border-bottom: 1px solid var(--border-gray);
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.3);
   z-index: 1000;
   backdrop-filter: blur(10px);
 }
 
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 1rem 2rem;
   max-width: 1200px;
@@ -250,11 +250,11 @@ a:hover {
 }
 
 .interactive-title {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'VT323', monospace;
   font-size: clamp(2rem, 6vw, 6rem);
-  font-weight: 600;
+  font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  text-align: center;
+  text-align: left;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   white-space: pre-wrap;
@@ -646,11 +646,12 @@ a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--primary-white);
-    border-top: 1px solid var(--border-gray);
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 1px solid rgba(51, 51, 51, 0.5);
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
+    backdrop-filter: blur(20px);
   }
 
   .nav-links.active {
@@ -679,6 +680,7 @@ a:hover {
     font-size: clamp(1.5rem, 8vw, 3rem);
     letter-spacing: 0.01em;
     line-height: 1.1;
+    text-align: left;
   }
 
   .project-thumbnail {

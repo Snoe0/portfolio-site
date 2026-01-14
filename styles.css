@@ -386,19 +386,30 @@ a:hover {
   justify-content: center;
   text-decoration: none;
   color: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .project-thumbnail:hover {
-  background: var(--hover-gray);
   transform: scale(1.02);
   z-index: 10;
   box-shadow: var(--shadow-hover);
+  opacity: 1;
 }
 
 .project-thumbnail-content {
   text-align: center;
   max-width: 600px;
   padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-thumbnail:hover .project-thumbnail-content {
+  opacity: 1;
 }
 
 .project-thumbnail-title {
@@ -432,9 +443,6 @@ a:hover {
   transition: var(--transition);
 }
 
-.project-thumbnail:hover .tech-tag {
-  background: var(--accent-gray);
-}
 
 /* Project Modal */
 .project-modal {

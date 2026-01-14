@@ -1041,6 +1041,132 @@ a:hover {
   }
 }
 
+/* Timeline Styles for Work Experience */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-black);
+  border-radius: 50%;
+  border: 2px solid var(--primary-white);
+}
+
+.timeline-marker::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100% + 3rem);
+  background-color: var(--border-gray);
+}
+
+.timeline-item:last-child .timeline-marker::before {
+  display: none;
+}
+
+.timeline-content {
+  background-color: rgba(26, 26, 26, 0.3);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-gray);
+}
+
+.timeline-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-header h3 {
+  font-size: 1.25rem;
+  color: var(--primary-black);
+  margin: 0;
+}
+
+.timeline-company {
+  font-size: 1rem;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.timeline-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--accent-gray);
+}
+
+.timeline-description {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.timeline-highlights {
+  margin-bottom: 1rem;
+}
+
+.timeline-highlights h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-black);
+}
+
+.timeline-highlights ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.timeline-highlights li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary-black);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-marker {
+    left: -1.5rem;
+  }
+
+  .timeline-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
 /* Print Styles */
 @media print {
   .header,

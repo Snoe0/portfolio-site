@@ -285,6 +285,14 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.typing-hint .desktop-hint {
+  display: none;
+}
+
+.typing-hint .default-hint {
+  display: inline;
+}
+
 @keyframes hintPulse {
   0%, 100% {
     opacity: 0.7;
@@ -296,9 +304,17 @@ a:hover {
   }
 }
 
-/* Hide typing hint on mobile/touch devices */
-@media (max-width: 768px), (hover: none) and (pointer: coarse) {
-  .typing-hint {
+/* Touch devices: show desktop prompt */
+@media (hover: none) and (pointer: coarse) {
+  .typing-hint span {
+    white-space: nowrap;
+  }
+
+  .typing-hint .desktop-hint {
+    display: inline;
+  }
+
+  .typing-hint .default-hint {
     display: none;
   }
 }

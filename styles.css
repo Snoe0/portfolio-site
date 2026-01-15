@@ -266,6 +266,43 @@ a:hover {
   overflow-wrap: break-word;
 }
 
+.typing-hint {
+  position: absolute;
+  top: 80px;
+  right: 2rem;
+  z-index: 10;
+  pointer-events: none;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
+.typing-hint span {
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes hintPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+}
+
+/* Hide typing hint on mobile/touch devices */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .typing-hint {
+    display: none;
+  }
+}
+
 /* Standard Hero Section (for other pages) */
 .hero {
   padding: 8rem 0 4rem;

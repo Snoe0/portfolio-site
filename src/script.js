@@ -278,14 +278,46 @@ function initInteractiveTitle() {
     const titleElement = document.getElementById('interactive-title');
     if (!titleElement) return;
 
-    const defaultText = 'Yuri Korolev';
-    let currentText = defaultText;
+    const defaultText = 'Yuri Korolev | Developer';
+    let currentText = '';
     let isTyping = false;
     let typingTimer;
     let keyboardFocused = false;
+    let initialTypingComplete = false;
 
-    // Set initial state
-    titleElement.textContent = defaultText;
+    // Check if device is mobile/touch
+    const isMobile = window.matchMedia('(max-width: 768px)').matches ||
+                     (window.matchMedia('(hover: none)').matches && window.matchMedia('(pointer: coarse)').matches);
+
+    // On mobile, just show the text immediately without animation
+    if (isMobile) {
+        titleElement.textContent = defaultText;
+        currentText = defaultText;
+        initialTypingComplete = true;
+        return; // Exit early, no keyboard interaction on mobile
+    }
+
+    // Set initial state - empty for typing animation
+    titleElement.textContent = '';
+
+    // Type out the default text on load
+    function typeInitialText() {
+        let charIndex = 0;
+        const typeInterval = setInterval(() => {
+            if (charIndex < defaultText.length) {
+                currentText += defaultText[charIndex];
+                titleElement.textContent = currentText + '|';
+                charIndex++;
+            } else {
+                clearInterval(typeInterval);
+                titleElement.textContent = currentText;
+                initialTypingComplete = true;
+            }
+        }, 100);
+    }
+
+    // Start typing animation after a short delay
+    setTimeout(typeInitialText, 500);
 
     // Reset to default text after inactivity
     function resetToDefault() {
@@ -301,6 +333,20 @@ function initInteractiveTitle() {
         titleElement.textContent = currentText;
     }
 
+    // Get typing hint element
+    const typingHint = document.getElementById('typing-hint');
+
+    // Hide typing hint
+    function hideTypingHint() {
+        if (typingHint) {
+            typingHint.style.opacity = '0';
+            typingHint.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                typingHint.style.display = 'none';
+            }, 500);
+        }
+    }
+
     // Handle keyboard input
     document.addEventListener('keydown', function(e) {
         // Prevent spacebar from scrolling when keyboard is focused
@@ -312,6 +358,11 @@ function initInteractiveTitle() {
         if (e.ctrlKey || e.altKey || e.metaKey ||
             ['Tab', 'Shift', 'Control', 'Alt', 'Meta', 'CapsLock', 'Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'].includes(e.key)) {
             return;
+        }
+
+        // Hide hint when user starts typing
+        if (initialTypingComplete) {
+            hideTypingHint();
         }
 
         clearTimeout(typingTimer);

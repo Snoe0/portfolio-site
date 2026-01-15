@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMPAGE! - Yuri Korolev</title>
+    <meta name="description" content="Project details and case study">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about-me.html">About</a></li>
+                <li><a href="../projects.html" class="active">Projects</a></li>
+                <li><a href="../resume.html">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Project Header -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in-up">
+                    <img src="../media/rampage/rampage-logo.png" alt="RAMPAGE! Logo" class="project-logo">
+                    <h1>RAMPAGE!</h1>
+                    <p class="hero-subtitle">Senior Capstone Project</p>
+                    <p class="hero-description">
+                        Ride a giant's head and RAMPAGE through the town! Make it as far as possible and leave a trail of destruction behind you. <br>|| Submitted to alt-ctrl GDC 2026
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-links">
+                            <a href="https://rampage.framer.website/" class="btn btn-primary" target="_blank">Rampage Website</a>
+                            <a href="https://www.instagram.com/alt.ctrl.rampage/" class="btn" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="section" id="overview">
+            <div class="container">
+                <h2>Project Overview</h2>
+                <div class="project-overview-grid">
+                    <div class="overview-content">
+                        <p>
+                            For my major's senior Capstone project, we were split into groups, to come up with and create projects to submit to alt-ctrl GDC 2026 (aka. Game Developers Conference). Our task was to create an alternative controller experience, and we came up with <b>RAMPAGE!</b> inspired by the film Ratatouille, controlling something using its hair.
+                        </p>
+                        <p>
+                            In RAMPAGE! you sit on the shoulders of a giant, leaning left and right to move and pull its hair to punch. This was certainly a challenge, creating the controller using Arduino sensors, and transferring the data through serial communication to Unity and implementing it into the game.
+                        </p>
+                    </div>
+                    <div class="project-details-card">
+                        <h3>Project Details</h3>
+                        <div class="detail-item">
+                            <strong>Team Size:</strong>
+                            <span>4 devs 4 designers</span>
+                        </div>
+                        <div class="detail-item team-role">
+                            <strong>My Role:</strong>
+                            <span>Unity/C# Lead Developer</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Timeline:</strong>
+                            <span>8 months</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Status:</strong>
+                            <span>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Used -->
+        <section class="section" id="skills-used">
+            <div class="container">
+                <h2>Technologies & Skills</h2>
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <h3>Development</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Arduino C++</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Design</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Blender</span>
+                            <span class="tech-tag">Adobe Illustrator</span>
+                            <span class="tech-tag">Framer</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Other</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Trello</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Images -->
+        <section class="section" id="project-images">
+            <div class="container">
+                <h2>Project Gallery</h2>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/Mo221qpPAmM" title="RAMPAGE! Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
+                        <p class="image-caption">GDC Video</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../media/rampage/rampage-intro.png" alt="RAMPAGE! Intro" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px;">
+                        <p class="image-caption">Intro Screen</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="../media/rampage/rampage-swing.png" alt="RAMPAGE! Swing" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px;">
+                        <p class="image-caption">Swing Mechanic</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges & Solutions -->
+        <!-- <section class="section" id="challenges">
+            <div class="container">
+                <h2>Challenges & Solutions</h2>
+                <div class="challenges-list">
+                    <div class="challenge-item">
+                        <h3>Challenge: [Challenge Title]</h3>
+                        <p><strong>Problem:</strong> [Describe the challenge or obstacle you encountered]</p>
+                        <p><strong>Solution:</strong> [Explain how you solved it and what you learned]</p>
+                    </div>
+                    <div class="challenge-item">
+                        <h3>Challenge: [Challenge Title]</h3>
+                        <p><strong>Problem:</strong> [Describe the challenge or obstacle you encountered]</p>
+                        <p><strong>Solution:</strong> [Explain how you solved it and what you learned]</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Lessons Learned & Next Steps -->
+        <section class="section" id="lessons">
+            <div class="container">
+                <h2>Lessons Learned & Next Steps</h2>
+                <div class="lessons-content">
+                    <div class="lessons-learned">
+                        <h3>What I Learned</h3>
+                        <ul>
+                            <li>Collaboration and Task Planning</li>
+                            <li>C# / C++ Serial Communication</li>
+                            <li>Unity 3D Model Manipulation</li>
+                        </ul>
+                    </div>
+                    <div class="next-steps">
+                        <h3>Future Improvements</h3>
+                        <ul>
+                            <li>Completing the Giant Head</li>
+                            <li>Different Building Types for a more in-depth experience</li>
+                            <li>Shader Development to add a Distance Curve</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation to Other Projects -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Explore More Projects</h2>
+                    <div class="mt-4">
+                        <a href="../projects.html" class="btn btn-primary">View All Projects</a>
+                        <a href="../index.html" class="btn">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="mailto:yurikorolev99@gmail.com">Email</a></li>
+                <li><a href="https://linkedin.com/in/yuriikorolev" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/Snoe0" target="_blank">GitHub</a></li>
+            </ul>
+            <p class="footer-text">&copy; 2026 Yuri Korolev. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../src/script.js"></script>
+</body>
+</html>

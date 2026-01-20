@@ -1,16 +1,103 @@
 // Modern Portfolio Template JavaScript
 // Handles navigation, smooth scrolling, and interactive features
 
+// Site Configuration - Update these values to change across all pages
+const SITE_CONFIG = {
+    email: 'yuri@yurikorolev.com',
+    linkedin: 'https://linkedin.com/in/yuriikorolev',
+    github: 'https://github.com/Snoe0'
+};
+
+// Populate contact links from config
+function populateContactLinks() {
+    // Email links
+    document.querySelectorAll('a[data-contact="email"]').forEach(link => {
+        link.href = `mailto:${SITE_CONFIG.email}`;
+    });
+
+    // LinkedIn links
+    document.querySelectorAll('a[data-contact="linkedin"]').forEach(link => {
+        link.href = SITE_CONFIG.linkedin;
+    });
+
+    // GitHub links
+    document.querySelectorAll('a[data-contact="github"]').forEach(link => {
+        link.href = SITE_CONFIG.github;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all features
+    populateContactLinks();
     initNavigation();
     initSmoothScrolling();
     initAnimations();
     initThemeDetection();
-    initInteractiveTitle();
+    initScrollProgress();
+    initScrollReveal();
 
     console.log('Portfolio template loaded successfully');
 });
+
+// Scroll Progress Indicator
+function initScrollProgress() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.prepend(progressBar);
+
+    const updateProgress = () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = `${progress}%`;
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+}
+
+// Scroll Reveal Animations
+function initScrollReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.section, .project-thumbnail, .skill-category, .timeline-item, .feature-item, .challenge-item').forEach(el => {
+            el.classList.add('revealed');
+        });
+        return;
+    }
+
+    const revealElements = document.querySelectorAll('.section, .project-thumbnail, .skill-category, .timeline-item, .feature-item, .challenge-item');
+
+    revealElements.forEach(el => {
+        if (!el.classList.contains('reveal')) {
+            el.classList.add('reveal');
+        }
+    });
+
+    const staggerContainers = document.querySelectorAll('.skills-grid, .projects-grid, .features-grid, .image-gallery');
+    staggerContainers.forEach(el => {
+        el.classList.add('reveal-stagger');
+    });
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+        revealObserver.observe(el);
+    });
+}
 
 // Navigation Management
 function initNavigation() {
@@ -72,26 +159,57 @@ function updateActiveNavigation() {
 
 // Smooth Scrolling for Anchor Links
 function initSmoothScrolling() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+
             e.preventDefault();
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
 
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
-                const offsetTop = targetElement.offsetTop - headerHeight - 20;
-
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            if (prefersReducedMotion) {
+                window.scrollTo(0, targetPosition);
+            } else {
+                smoothScrollTo(targetPosition, 600);
             }
+
+            // Update URL without jumping
+            history.pushState(null, '', targetId);
         });
     });
+}
+
+// Custom smooth scroll with easing
+function smoothScrollTo(targetPosition, duration) {
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    // Ease-out cubic for smooth deceleration
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutCubic(progress);
+
+        window.scrollTo(0, startPosition + distance * easedProgress);
+
+        if (elapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    requestAnimationFrame(animation);
 }
 
 // Animation and Scroll Effects
@@ -271,173 +389,6 @@ window.addEventListener('error', function(e) {
     console.error('JavaScript Error:', e.error);
     // In production, you might want to send this to an error tracking service
 });
-
-
-// Interactive Title System
-function initInteractiveTitle() {
-    const titleElement = document.getElementById('interactive-title');
-    if (!titleElement) return;
-
-    const defaultText = 'Yuri Korolev | Developer';
-    let currentText = '';
-    let isTyping = false;
-    let typingTimer;
-    let keyboardFocused = false;
-    let initialTypingComplete = false;
-
-    // Check if device is mobile/touch
-    const isMobile = window.matchMedia('(max-width: 768px)').matches ||
-                     (window.matchMedia('(hover: none)').matches && window.matchMedia('(pointer: coarse)').matches);
-
-    // On mobile, just show the text immediately without animation
-    if (isMobile) {
-        titleElement.textContent = defaultText;
-        currentText = defaultText;
-        initialTypingComplete = true;
-        return; // Exit early, no keyboard interaction on mobile
-    }
-
-    // Set initial state - empty for typing animation
-    titleElement.textContent = '';
-
-    // Type out the default text on load
-    function typeInitialText() {
-        let charIndex = 0;
-        const typeInterval = setInterval(() => {
-            if (charIndex < defaultText.length) {
-                currentText += defaultText[charIndex];
-                titleElement.textContent = currentText + '|';
-                charIndex++;
-            } else {
-                clearInterval(typeInterval);
-                titleElement.textContent = currentText;
-                initialTypingComplete = true;
-            }
-        }, 100);
-    }
-
-    // Start typing animation after a short delay
-    setTimeout(typeInitialText, 500);
-
-    // Reset to default text after inactivity
-    function resetToDefault() {
-        if (currentText !== defaultText) {
-            titleElement.textContent = defaultText;
-            currentText = defaultText;
-        }
-        keyboardFocused = false;
-    }
-
-    // Update text display with proper wrapping
-    function updateDisplay() {
-        titleElement.textContent = currentText;
-    }
-
-    // Get typing hint element
-    const typingHint = document.getElementById('typing-hint');
-
-    // Hide typing hint
-    function hideTypingHint() {
-        if (typingHint) {
-            typingHint.style.opacity = '0';
-            typingHint.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => {
-                typingHint.style.display = 'none';
-            }, 500);
-        }
-    }
-
-    // Handle keyboard input
-    document.addEventListener('keydown', function(e) {
-        // Prevent spacebar from scrolling when keyboard is focused
-        if (e.key === ' ' && keyboardFocused) {
-            e.preventDefault();
-        }
-
-        // Ignore navigation and system keys (but allow spacebar for typing)
-        if (e.ctrlKey || e.altKey || e.metaKey ||
-            ['Tab', 'Shift', 'Control', 'Alt', 'Meta', 'CapsLock', 'Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'].includes(e.key)) {
-            return;
-        }
-
-        // Hide hint when user starts typing
-        if (initialTypingComplete) {
-            hideTypingHint();
-        }
-
-        clearTimeout(typingTimer);
-        isTyping = true;
-        keyboardFocused = true;
-
-        if (e.key === 'Backspace') {
-            // Remove last character
-            if (currentText.length > 0) {
-                currentText = currentText.slice(0, -1);
-                updateDisplay();
-            }
-        } else if (e.key === 'Enter') {
-            // Add line break
-            currentText += '\n';
-            updateDisplay();
-        } else if (e.key === ' ') {
-            // Add space
-            currentText += ' ';
-            updateDisplay();
-        } else if (e.key.length === 1) {
-            // Add typed character
-            if (currentText.length < 200) { // Increased limit for wrapping text
-                currentText += e.key;
-                updateDisplay();
-            }
-        }
-
-        // Reset to default after 5 seconds of inactivity
-        typingTimer = setTimeout(() => {
-            isTyping = false;
-            setTimeout(resetToDefault, 1000);
-        }, 5000);
-    });
-
-    // Handle click to activate keyboard focus
-    document.addEventListener('click', function(e) {
-        keyboardFocused = true;
-        setTimeout(() => {
-            if (!isTyping) {
-                keyboardFocused = false;
-            }
-        }, 3000);
-    });
-
-    // Add typing indicator effect
-    let blinkInterval;
-    let showCursor = false;
-
-    function startBlinking() {
-        clearInterval(blinkInterval);
-        blinkInterval = setInterval(() => {
-            if (isTyping || keyboardFocused) {
-                showCursor = !showCursor;
-                if (showCursor) {
-                    titleElement.textContent = currentText + '|';
-                } else {
-                    titleElement.textContent = currentText;
-                }
-            } else {
-                titleElement.textContent = currentText;
-                showCursor = false;
-            }
-        }, 500);
-    }
-
-    startBlinking();
-
-    // Prevent spacebar scrolling when interacting with the title area
-    document.addEventListener('keydown', function(e) {
-        if (e.key === ' ' && (isTyping || keyboardFocused)) {
-            e.preventDefault();
-        }
-    });
-}
 
 // Export functions for potential use by other scripts
 window.portfolioUtils = {

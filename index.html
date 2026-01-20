@@ -6,6 +6,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Yuri Korolev - Portfolio</title>
    <meta name="description" content="Professional portfolio showcasing projects, skills, and experience">
+   <link rel="icon" type="image/x-icon" href="media/favicons/favicon.ico">
+   <link rel="icon" type="image/png" sizes="32x32" href="media/favicons/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="media/favicons/favicon-16x16.png">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
@@ -47,10 +50,11 @@
       <!-- About Me Section -->
       <section class="section" id="about">
          <div class="container">
-            <h2 class="text-center">About Me</h2>
+            <h2 class="text-center">I design and build interactive digital products that balance usability, performance, and data.</h2>
             <p class="hero-description text-center">
-               I am <b>Yuri Korolev</b>, a software developer from Rochester Institute of Technology. Born and raised in New York City, I've always been passionate about technology, games, and finance. I specialize in interactive development with a focus on creating engaging user experiences.
+               Developer focused on UX/UI, front-end systems, and data-driven interfaces — with a strong interest in finance and product thinking.
             </p>
+            <p class="text-center" style="color: var(--accent-gray); font-size: 0.95rem;">Based in New York City.</p>
             <div class="text-center mt-2">
                <a href="about-me.html" class="btn">Read More</a>
             </div>
@@ -61,37 +65,39 @@
       <section class="section" id="skills">
          <div class="container">
             <h2 class="text-center">Skills & Expertise</h2>
-            <div class="skills-grid">
-               <div class="skill-category">
-                  <h3>Development</h3>
-                  <ul class="skill-list">
-                     <li>JavaScript</li>
-                     <li>TypeScript</li>
-                     <li>Python</li>
-                     <li>C#</li>
-                     <li>HTML & CSS</li>
-                     <li>Unity / Unreal Engine</li>
+            <!-- Interactive Skill Web -->
+            <div id="skill-web-container" class="skill-web-container">
+               <!-- SEO-friendly skills list (hidden visually, visible to crawlers and screen readers) -->
+               <div class="skill-web-fallback sr-only" aria-label="Skills list">
+                  <h3>Development Languages</h3>
+                  <ul>
+                     <li>JavaScript - Core language for web development</li>
+                     <li>TypeScript - Type-safe JavaScript development</li>
+                     <li>Python - Data analysis and automation</li>
+                     <li>C# - Unity game development</li>
+                     <li>HTML5 - Semantic markup and structure</li>
+                     <li>CSS3 - Styling and animations</li>
                   </ul>
-               </div>
-               <div class="skill-category">
-                  <h3>Design & UI/UX</h3>
-                  <ul class="skill-list">
-                     <li>Spline</li>
-                     <li>Figma</li>
-                     <li>React.js</li>
-                     <li>Adobe Certified Professional</li>
-                     <li>Interactive Design and Psychology</li>
-                     <li>Flutter + Dart</li>
+                  <h3>Frameworks & Libraries</h3>
+                  <ul>
+                     <li>React.js - Component-based UI development</li>
+                     <li>Node.js - Server-side JavaScript runtime</li>
+                     <li>Unity - Game engine for interactive experiences</li>
                   </ul>
-               </div>
-               <div class="skill-category">
-                  <h3>Tools & Technologies</h3>
-                  <ul class="skill-list">
-                     <li>Git / GitHub</li>
-                     <li>Node.js</li>
-                     <li>Webpack / Vite</li>
-                     <li>Arduino / Physical Computing</li>
-                     <li>Performance Optimization</li>
+                  <h3>Design Tools</h3>
+                  <ul>
+                     <li>Figma - UI/UX design and prototyping</li>
+                     <li>Spline - 3D design for the web</li>
+                  </ul>
+                  <h3>Databases</h3>
+                  <ul>
+                     <li>MongoDB - NoSQL database</li>
+                     <li>MySQL - Relational database</li>
+                  </ul>
+                  <h3>Tools & Hardware</h3>
+                  <ul>
+                     <li>Git - Version control and collaboration</li>
+                     <li>Arduino - Physical computing and sensors</li>
                   </ul>
                </div>
             </div>
@@ -163,15 +169,17 @@
    <footer class="footer">
       <div class="container">
          <ul class="footer-links">
-            <li><a href="mailto:yurikorolev99@gmail.com">Email</a></li>
-            <li><a href="https://linkedin.com/in/yuriikorolev" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/Snoe0" target="_blank">GitHub</a></li>
+            <li><a href="mailto:yuri@yurikorolev.com" data-contact="email">Email</a></li>
+            <li><a href="https://linkedin.com/in/yuriikorolev" data-contact="linkedin" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/Snoe0" data-contact="github" target="_blank">GitHub</a></li>
          </ul>
          <p class="footer-text">&copy; 2026 Yuri Korolev. All rights reserved.</p>
       </div>
    </footer>
 
    <script src="src/script.js"></script>
+   <script src="src/interactive-title.js"></script>
+   <script src="src/skill-web.js"></script>
 </body>
 
 </html>
